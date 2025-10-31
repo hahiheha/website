@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hải Hà | Notebook</title>
+</head>
+
+<body>
+<body style="background-color: #fff6f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div style="max-width: 700px; margin: 50px auto; text-align: center; background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        
+        <h1 style="color: #b22222;">My Notebook</h1>
+
+        <nav style="margin-bottom: 20px;">
+            <a href="index.html" style="color: #b22222; border: 1px solid #b22222; padding: 8px 16px; border-radius: 8px; text-decoration: none;">🏠 Back to Home</a>
+        </nav>
+
+        <h3 style="color: #b22222;">Add notes here:</h3>
+        <textarea id="textInput" style="display: block; height: 100px; width: 80%; margin: 0 auto; padding: 10px; border-radius: 8px; border: 1px solid #ccc;" placeholder="Write your text here"></textarea>
+
+        <button onclick="createNewNote()" style="background-color: #b22222; color: white; border: none; padding: 10px 20px; margin-top: 10px; border-radius: 6px; cursor: pointer;">Add your note</button>
+        
+        <h2 style="color: #b22222; border-bottom: 2px solid #f5bcbc; padding-bottom: 5px; margin-top: 30px;">Notes</h2>
+        <div id="container" style="width: 80%; background-color: #fff8dc; padding: 10px; border-radius: 8px; margin: 0 auto;"></div>
+    </div>
+
+    <script>
+        function createNewNote() {
+            const input = document.getElementById("textInput");
+            const text = input.value.trim();
+
+            if (text === "") {
+                alert("Please enter something before adding your note");
+                return;
+            }
+
+            const newElement = document.createElement("p");
+            newElement.textContent = text;
+            newElement.style.border = "1px solid #b22222";
+            newElement.style.padding = "8px";
+            newElement.style.borderRadius = "6px";
+            newElement.style.backgroundColor = "white";
+            newElement.style.marginTop = "6px";
+
+            document.getElementById("container").appendChild(newElement);
+            input.value = "";
+        }
+    </script>
+</body>
+
+</html>
