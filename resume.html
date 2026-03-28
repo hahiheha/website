@@ -1,0 +1,708 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lê Thị Hải Hà — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f1015;
+    --ink-light: #4a3c42;
+    --ink-faint: #8a7880;
+    --accent: #d81b60; /* Deep Pink */
+    --accent-light: #f06292; /* Soft Pink */
+    --accent-pale: #fce4ec; /* Pale Pink */
+    --accent-rule: #f48fb1; /* Medium Pink */
+    --bg: #fff5f8;
+    --bg-warm: #fcf0f4;
+    --white: #ffffff;
+    --sidebar-w: 200px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; max-width: 100%; }
+    @page { margin: 0; size: A4; }
+  }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--bg-warm);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    line-height: 1;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 4px 40px rgba(216, 27, 96, 0.13);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .cv-header {
+    background: var(--ink);
+    color: white;
+    padding: 2.6rem 3rem 2rem;
+    position: relative;
+  }
+
+  .cv-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent-rule) 100%);
+  }
+
+  .header-name {
+    font-size: 2.9rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    color: #fff;
+  }
+
+  .header-name span {
+    font-weight: 700;
+    color: var(--accent-light);
+  }
+
+  .header-title {
+    font-size: 0.82rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    color: #d6c4cb;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+
+  .header-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.6rem;
+  }
+
+  .header-contact a, .header-contact span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #dfd4d8;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .header-contact a:hover { color: var(--accent-light); }
+
+  .contact-sep { color: #6e5c63; }
+
+  /* ── BODY LAYOUT ── */
+  .cv-body {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--accent-pale);
+    padding: 2rem 1.4rem 2rem 2rem;
+    border-right: 1px solid #f8d0de;
+  }
+
+  .sidebar-section { margin-bottom: 2rem; }
+
+  .sidebar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--accent-rule);
+  }
+
+  .sidebar-item {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    margin-bottom: 0.45rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .sidebar-item strong {
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    font-size: 0.85rem;
+  }
+
+  .sidebar-item .sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+    font-weight: 300;
+  }
+
+  .skill-pill {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    background: white;
+    border: 1px solid var(--accent-rule);
+    color: var(--accent);
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin: 2px 2px 2px 0;
+    font-weight: 400;
+  }
+
+  .lang-bar {
+    margin-bottom: 0.6rem;
+  }
+
+  .lang-name {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .lang-level {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--ink-faint);
+  }
+
+  .lang-track {
+    height: 3px;
+    background: #f8d0de;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .lang-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 1.8rem 2.4rem 2rem 2rem;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 1.6rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-rule), transparent);
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--ink-light);
+    line-height: 1.65;
+    font-style: italic;
+    padding-left: 0.8rem;
+    border-left: 2px solid var(--accent-rule);
+  }
+
+  .profile-text strong {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ── ROLE ── */
+  .role { margin-bottom: 1.1rem; }
+
+  .role-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .role-org {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .role-loc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    font-weight: 300;
+  }
+
+  .role-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .role-title {
+    font-size: 0.83rem;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .role-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    font-weight: 300;
+  }
+
+  /* ── BULLETS ── */
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.bullets li {
+    font-size: 0.83rem;
+    color: var(--ink-light);
+    line-height: 1.55;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+  }
+
+  ul.bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-rule);
+    font-weight: 300;
+  }
+
+  ul.bullets li strong, ul.bullets li b {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-entry { margin-bottom: 1rem; }
+
+  .award {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
+  }
+
+  .award::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+    font-size: 0.5rem;
+    top: 3px;
+  }
+
+  .award strong { color: var(--ink-light); font-weight: 700; }
+
+  /* ── PROJECTS ── */
+  .project-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0px;
+  }
+
+  .project-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+    font-weight: 300;
+  }
+
+  /* ── DIVIDER ── */
+  .role-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #f8d0de, transparent);
+    margin: 1rem 0;
+  }
+
+  /* ── FOOTER ── */
+  .cv-footer {
+    background: var(--ink);
+    padding: 0.7rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cv-footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: #8c7882;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .cv-footer .dot { color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="cv-header">
+    <div class="header-name">Lê Thị <span>Hải Hà</span></div>
+    <div class="header-title">Operations &amp; Business Development</div>
+    <div class="header-contact">
+      <span>Ho Chi Minh City, Vietnam</span>
+      <span class="contact-sep">·</span>
+      <a href="mailto:ha.le.250058@student.fulbright.edu.vn">ha.le.250058@student.fulbright.edu.vn</a>
+      <span class="contact-sep">·</span>
+      <span>+84 326 951 075</span>
+      <span class="contact-sep">·</span>
+      <a href="https://www.linkedin.com/in/le-thi-hai-ha/" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="cv-body">
+
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Education</div>
+        <div class="sidebar-item">
+          <strong>Fulbright University Vietnam</strong>
+          B.A. Computer Science &amp; Vietnam Studies
+          <span class="sub">GPA: 4.0 / 4.0 · 2025–2029</span>
+        </div>
+        <div class="sidebar-item" style="margin-top:0.7rem;">
+          <strong>Hung Vuong High School</strong>
+          English Specialization · Valedictorian
+          <span class="sub">GPA: 9.6 / 10 · 2022–2025</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Scholarships</div>
+        <div class="sidebar-item">Provost Scholarship</div>
+        <div class="sidebar-item">HV Foundation Impact Scholarship</div>
+        <div class="sidebar-item">Silver Medal — Olympic 30/4 (English) XXVII &amp; XXVIII</div>
+        <div class="sidebar-item">2nd Prize — Provincial Excellent Student (English) 2024</div>
+        <div class="sidebar-item">1st Province-wide, D01 National Exam Track</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Technical Skills</div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="sidebar-item" style="margin-bottom:0.3rem; font-size:0.75rem; color:var(--ink-faint);">Data &amp; Analysis</div>
+          <span class="skill-pill">Python (Pandas)</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill">Data Viz</span>
+          <span class="skill-pill">Scikit-learn</span>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="sidebar-item" style="margin-bottom:0.3rem; font-size:0.75rem; color:var(--ink-faint);">Operations</div>
+          <span class="skill-pill">CRM Systems</span>
+          <span class="skill-pill">Program Mgmt</span>
+          <span class="skill-pill">Process Design</span>
+        </div>
+        <div style="margin-bottom:0.5rem;">
+          <div class="sidebar-item" style="margin-bottom:0.3rem; font-size:0.75rem; color:var(--ink-faint);">Marketing</div>
+          <span class="skill-pill">HTML Email</span>
+          <span class="skill-pill">Brevo</span>
+          <span class="skill-pill">HubSpot</span>
+          <span class="skill-pill">Newsletter</span>
+        </div>
+        <div>
+          <div class="sidebar-item" style="margin-bottom:0.3rem; font-size:0.75rem; color:var(--ink-faint);">Research</div>
+          <span class="skill-pill">Quant Methods</span>
+          <span class="skill-pill">ECGM</span>
+          <span class="skill-pill">Literature Review</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Languages</div>
+        <div class="lang-bar">
+          <div class="lang-name">Vietnamese <span class="lang-level">Native</span></div>
+          <div class="lang-track"><div class="lang-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-bar">
+          <div class="lang-name">English <span class="lang-level">Fluent</span></div>
+          <div class="lang-track"><div class="lang-fill" style="width:92%"></div></div>
+        </div>
+        <div class="lang-bar">
+          <div class="lang-name">Mandarin <span class="lang-level">Beginner</span></div>
+          <div class="lang-track"><div class="lang-fill" style="width:22%"></div></div>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <div class="section">
+        <div class="section-header">
+          <span class="section-title">Profile</span>
+          <div class="section-rule"></div>
+        </div>
+        <p class="profile-text">
+          Operations and business development professional with a track record of scaling organizations by <strong>230%–800%</strong> and generating <strong>50M+ VND in revenue at zero upfront cost</strong> across international teams spanning ASEAN, the U.S., and Canada. Combines quantitative rigor — Python, regression modeling, data visualization — with end-to-end execution across research, strategy, and community operations.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span class="section-title">Experience</span>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">Vietnam Impact Investing Network (VIIN)</span>
+            <span class="role-loc">Ho Chi Minh City</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Community Building &amp; Newsletter Intern</span>
+            <span class="role-date">Mar 2026 – Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Designed and launched VIIN's <strong>inaugural Impact Newsletter</strong> from zero — iterating through <strong>6 format versions</strong> across platforms (Brevo, HubSpot) to establish brand voice, visual identity, and editorial cadence for bi-weekly editions</li>
+            <li>Engineered <strong>custom HTML email templates</strong> from scratch, standardizing design across all editions and cutting per-edition production time by an estimated <strong>40%</strong></li>
+            <li>Architected and manages dual mailing list databases (member + public), improving audience segmentation accuracy and enabling targeted outreach across stakeholder groups</li>
+            <li>Conducts newsletter format research and iterates on subject lines and content structure to systematically improve open and click-through performance across editions</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">Vietnam Studies Center — Fulbright University Vietnam</span>
+            <span class="role-loc">Ho Chi Minh City</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Research Assistant Intern</span>
+            <span class="role-date">Jan 2026 – Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Standardized and structured metadata across <strong>40+ archival publications</strong>, improving consistency and usability of a public-facing digital archive</li>
+            <li>Synthesized gender discourse analysis across <strong>12 issues of Phụ Nữ Tân Văn</strong> into structured research briefs, surfacing key intellectual trends for academic and public exhibition use</li>
+            <li>Transformed two archival literary works (Tây Hồ thi tập, Santé thi tập) into curated public narratives displayed at Hoa Binh Theatre, increasing accessibility for exhibition audiences</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">ICS Center</span>
+            <span class="role-loc">Ho Chi Minh City</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Research &amp; Project Intern</span>
+            <span class="role-date">Mar 2026 – Aug 2026</span>
+          </div>
+          <ul class="bullets">
+            <li>Led literature synthesis phase of an <strong>LGBT+ mental health research project</strong> — reading and consolidating academic sources to generate evidence-based next-step recommendations for the research team</li>
+            <li>Applied quantitative and qualitative research methods across a <strong>12-module intensive training</strong>, building expertise in survey design, ECGM framework, and professional identity research</li>
+            <li>Systematically archived and maintained research datasets per project security protocols, ensuring data integrity across all assigned respondent records</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">GSL Ha Nam Joint Stock Company</span>
+            <span class="role-loc">Vietnam</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Market Research Intern</span>
+            <span class="role-date">Oct 2025 – Jan 2026</span>
+          </div>
+          <ul class="bullets">
+            <li>Evaluated and qualified <strong>50+ potential partners</strong> and industrial zones, building a structured opportunity pipeline for domestic business expansion</li>
+            <li>Architected and maintained a centralized CRM system to track leads and partnerships, improving cross-team coordination and follow-up efficiency</li>
+            <li>Delivered <strong>5+ strategic reports</strong> and presentations to internal stakeholders, supporting data-driven decisions in partner acquisition</li>
+            <li>Mapped competitive landscape across target sectors, surfacing high-potential partnership opportunities that fed directly into the executive decision pipeline</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">Talaria Summer Institute</span>
+            <span class="role-loc">Remote / International</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Research Fellow</span>
+            <span class="role-date">May 2025 – Sep 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Co-architected a multi-regional comparative research framework with international academic advisors, enabling structured cross-country analysis</li>
+            <li>Presented findings at <strong>TSI 2025 Conference</strong> through data visualizations and executive briefings, engaging academic and professional stakeholders</li>
+            <li>Coordinated cross-functional feedback cycles, ensuring on-time delivery of research outputs across a distributed international team</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">CanLab Community</span>
+            <span class="role-loc">Vietnam</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Business Development Lead</span>
+            <span class="role-date">May 2025 – Aug 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Drove <strong>800% enrollment growth</strong> — from 10 to 90 participants in <strong>7 days</strong> — by redesigning outreach positioning, conversion funnel, and acquisition messaging from zero</li>
+            <li>Generated <strong>50M+ VND in net revenue at zero upfront cost</strong> within a single <strong>3-week program cycle</strong>, by architecting full-cycle monetization strategy from pricing design to conversion optimization</li>
+            <li>Ran <strong>10+ user interviews daily</strong> over the launch sprint, synthesizing insights into iterative program structure changes that directly contributed to enrollment growth</li>
+            <li>Directed end-to-end program execution across a cross-functional team — spanning strategy, operations, and delivery — completing full cycle within 3 weeks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span class="section-title">Technical Projects</span>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="role" style="margin-bottom:0.8rem;">
+          <div class="project-name">Airbnb Market Analysis — Berlin</div>
+          <div class="project-meta">Independent Project · Python · 2025</div>
+          <ul class="bullets">
+            <li>Cleaned and processed <strong>14,000+ listings</strong> using Python (Pandas); built heatmaps, correlation matrices, and geographic visualizations to surface pricing and occupancy insights</li>
+            <li>Synthesized findings into an <strong>11-page report</strong> with data-backed recommendations for market entry and revenue optimization</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="project-name">Predictive Modeling — Linear &amp; Logistic Regression</div>
+          <div class="project-meta">Independent Project · Scikit-learn · 2025</div>
+          <ul class="bullets">
+            <li>Built regression models for continuous and binary outcomes; evaluated via MAE, MSE, ROC-AUC, confusion matrix, precision, and recall</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span class="section-title">Leadership &amp; Activities</span>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">mercuri.world</span>
+            <span class="role-loc">ASEAN / U.S. / Canada</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Chief Operating Officer</span>
+            <span class="role-date">Aug 2024 – Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Scaled volunteer organization by <strong>230%</strong> — from 100 to <strong>240 members</strong> across 3 countries — by rebuilding operational infrastructure including onboarding workflows and team structure</li>
+            <li>Standardized onboarding for <strong>200+ international members</strong>, cutting onboarding time from <strong>2 weeks to 1 week</strong> (50% reduction) and improving cross-border coordination efficiency</li>
+            <li>Spearheaded launch and operations of the <strong>Little Talks Movement</strong>, driving 200+ participant registrations and facilitating 150+ structured conversations</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">Thiếu Nhi Thời Đại</span>
+            <span class="role-loc">Vietnam</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Founder, Academic Team</span>
+            <span class="role-date">Apr 2025 – Dec 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Founded and led a team of <strong>27 university students</strong> to design educational programs (workshops, interactive magazines) for children aged 6–12</li>
+            <li>Developed strategic roadmaps and core educational materials; secured expert partnerships to expand program credibility and curriculum depth</li>
+          </ul>
+        </div>
+
+        <div class="role-divider"></div>
+
+        <div class="role">
+          <div class="role-top">
+            <span class="role-org">Vietnam Team HBV</span>
+            <span class="role-loc">Vietnam</span>
+          </div>
+          <div class="role-bottom">
+            <span class="role-title">Vice President</span>
+            <span class="role-date">Aug 2024 – Aug 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Executed <strong>4 nationwide</strong> public health awareness campaigns, coordinating cross-functional teams and logistics for <strong>100+ student participants</strong></li>
+            <li>Led end-to-end website redevelopment, growing digital following by <strong>1,000+</strong> within 10 months</li>
+            <li>Secured <strong>1,000,000 VND</strong> in external sponsorship and managed on-ground operations at WASS Festival</li>
+            <li>Launched cross-chapter podcast collaboration with HBV Central Austin, expanding international content reach and engagement</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="cv-footer">
+    <span>Lê Thị Hải Hà <span class="dot">·</span> CV</span>
+    <span>Ho Chi Minh City, Vietnam <span class="dot">·</span> 2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
